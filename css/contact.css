@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+label {
+    display: inline-block;
+    width: 30%;
+}
+label span, input:required {
+    font-weight: bolder;
+}
+form {
+    width: 98%;
+}
+fieldset {
+    display: inline-block;
+    vertical-align: top;
+    padding:2px;
+    margin:2px;
+    border: none;
+}
+input.trait{
+    margin: 2px;
+    color: #a7aa13;
+    background-color: transparent;
+    border: none;
+    border-bottom: dashed 1px white;
+}
+fieldset#coordo {
+    width: 33%;
+}
+fieldset#msg {
+    width: 45%;
+    height: 130px;
+}
+
+input[type='submit']{
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+textarea {
+    width: 98%;
+    height: 95px;
+    background-color: transparent;
+    border: dashed 1px white;
+    color: #a7aa13;
+}
+.social{
+color:white;
+transition:0.5s;
+}
+.social:hover{
+  color:#2814e9;
+  transition:0.5s;
+}

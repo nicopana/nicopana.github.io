@@ -1,0 +1,155 @@
+body{
+  background: url("Ressources/image/desktop/background1920x1280.jpg") no-repeat fixed center;
+  background-size: 100%;
+  /*background-repeat: no-repeat;*/
+  background-repeat:
+  margin:0px;
+  padding:0px;
+}
+div{
+  border:solid black 1px;
+  margin:2px;
+}
+  div#main{
+  position: absolute;
+  top:0px;
+  left:0px;
+  margin:0px;
+  padding:0px;
+  display:flex;
+  flex-direction:column;;
+  /*background-image: url("Ressources/image/desktop/background1920x1280.jpg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  min-width:768px;*/
+  /*height:1280px;*/
+  }
+
+img.fond{
+  position: relative;
+  top:0px;
+  left:0px;
+  /*width:100%;*/
+  /*width: 1920px;*/
+  min-width: 768px;
+}
+a{
+  display:inline-block;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+a:hover{
+  background-position: right top;
+}
+
+a.silo_film{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:112px;
+  height:117px;
+  background-image: url("Ressources/image/desktop/silo_film.png");
+}
+a.silo_livre{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:97px;
+  height:117px;
+  background-image: url("Ressources/image/desktop/sepia/silo_livres.png");
+}
+a.silo_livre:hover{
+  background-image: url("Ressources/image/desktop/couleur/silo_livres.png");
+  background-position: left top;
+}
+a.formateur95{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:213px;
+  height:180px;
+  background-image: url("Ressources/image/desktop/formateur95.png");
+}
+a.magasinnier{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:204px;
+  height:97px;
+  background-image: url("Ressources/image/desktop/magasinnier.png");
+}
+a.abapeur{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:175px;
+  height:229px;
+  background-image: url("Ressources/image/desktop/abapeur.png");
+}
+a.responsable{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:247px;
+  height:131px;
+  background-image: url("Ressources/image/desktop/responsable.png");
+}
+a.formateur_info{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:243px;
+  height:250px;
+  background-image: url("Ressources/image/desktop/formateur_info.png");
+}
+
+a.contact{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:124px;
+  height:214px;
+  background-image: url("Ressources/image/desktop/boite_a_lettre.png");
+}
+
+a.bac{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:140px;
+  height:84px;
+  background-image: url("Ressources/image/desktop/voiture_bac.png");
+}
+a.biochimie{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:303px;
+  height:144px;
+  background-image: url("Ressources/image/desktop/voiture_biochimie.png");
+}
+a.graduat{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:369px;
+  height:192px;
+  background-image: url("Ressources/image/desktop/voiture_graduat.png");
+}
+a.mos{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:437px;
+  height:162px;
+  background-image: url("Ressources/image/desktop/voiture_mos.png");
+}
+
+a.belge{
+  /*position: absolute;
+  top:0%;
+  left:0%;*/
+  width:820px;
+  height:209px;
+  background-image: url("Ressources/image/desktop/belge.png");
+}

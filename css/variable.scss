@@ -1,0 +1,37 @@
+// $bordure: solid red 2px;
+$bordure: 0;
+$fontSF: Orbitron;
+$fontMano: 'Dancing Script';
+$imgSepia: "../image/desktop/sepia/";
+$imgCouleur: "../image/desktop/couleur/";
+$borderForm : dashed 1px white;
+$colorInput:#a7aa13;
+
+/*************************************************************
+                    générales
+*************************************************************/
+.txt_base {
+    color: white;
+    font-family: $fontMano;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: normal;
+    text-align: justify;
+}
+.txt_SF{
+  color: #3BF901;
+  font-family: $fontSF;
+  font-size: 1em;
+  line-height: 1.5;
+}
+.clear{
+  clear:both;
+}
+.transparent{
+  opacity:0;
+  transition:1.5s;
+}
+.opaque{
+  opacity:1;
+  transition:1.5s;
+}

@@ -1,0 +1,269 @@
+div#main {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /*margin: auto;*/
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    border: solid red 2px;
+    z-index: -2;
+}
+#fond {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    min-height: 350px;
+    min-width: 800px;
+    z-index: -1;
+}
+
+/*****************************************************
+             ==affichage info
+****************************************************             */
+
+div#nuage {
+    position: absolute;
+    width: 62%;
+    height: 59%;
+    left: 21%;
+    top: -4%;
+    /*background-image: url("image/desktop/couleur/nuage.png");*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
+#nuage.SF {
+    /*background-image: url("image/desktop/couleur/nuage_noir.png");*/
+}
+
+/*champ ne servant qu'à donner le focus à la zone de texte après clic*/
+
+#nuage_focus {
+    margin-left: 55%;
+    margin-top: 5%;
+    background-color: transparent;
+    border: 0;
+}
+#nuage_scroll {
+    z-index: 2;
+    position: absolute;
+    left: 25%;
+    width: 65%;
+    height: 80%;
+    overflow: hidden;
+    /*display: none;*/
+    padding: O;
+}
+#nuage_txt {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 102%;
+    height: 100%;
+    color: blue;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: justify;
+    overflow: auto;
+    display: none;
+    padding: 5px;
+}
+#nuage_txt.SF {
+    color: #3BF901;
+    border-radius: 55px;
+    font-family: Orbitron;
+    font-size: 12px;
+    line-height: 1.5;
+}
+#nuage_txt h1 {
+    text-align: center;
+    margin: 0;
+}
+#nuage_txt h2 {
+    margin: 2px 0px 2px 5px;
+}
+#nuage_txt span {
+    font-weight: bolder;
+}
+
+/*************************************************************
+                    ==petit écran
+*************************************************************/
+
+@media screen and (max-width: 680px) {
+    div#nuage {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        left: 5%;
+        background-image: none;
+    }
+    div#nuage.SF {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    left: 5%;
+    background-image: none;
+    }
+
+    #nuage_scroll {
+        z-index: 2;
+        position: absolute;
+        left: 5%;
+        width: 75%;
+        height: 80%;
+        overflow: hidden;
+        /*display: none;*/
+        padding: O;
+    }
+    #nuage_txt {
+        position: absolute;
+        /*background-color: grey;*/
+        /*left: 5%;
+        width: 75%;
+        height: 80%;*/
+        font-size: 12px;
+    }
+    #nuage_txt.SF {
+        background-color: black;
+    }
+}
+
+/***********************************************
+                     ==éléments cliquable
+**********************************************                     */
+
+a {
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+a#silo_livre {
+    width: 8%;
+    height: 15%;
+    background-image: url("image/desktop/sepia/silo_livres.png");
+    left: 9%;
+    bottom: 42%;
+}
+a#silo_livre:hover {
+    background-image: url("image/desktop/couleur/silo_livres.png");
+}
+a#silo_film {
+    width: 8%;
+    height: 15%;
+    background-image: url("image/desktop/sepia/silo_film.png");
+    left: 83%;
+    bottom: 58%;
+}
+a#silo_film:hover {
+    background-image: url("image/desktop/couleur/silo_film.png");
+}
+a#contact {
+    width: 9%;
+    height: 22%;
+    background-image: url("image/desktop/sepia/boite_a_lettres.png");
+    left: 1%;
+    bottom: 6%;
+}
+a#contact:hover {
+    background-image: url("image/desktop/couleur/boite_a_lettres.png");
+}
+a#formateur95 {
+    width: 16%;
+    height: 22%;
+    background-image: url("image/desktop/sepia/formateur95.png");
+    left: 24%;
+    bottom: 13%;
+}
+a#formateur95:hover {
+    background-image: url("image/desktop/couleur/formateur95.png");
+}
+a#magasinnier {
+    width: 14%;
+    height: 10%;
+    background-image: url("image/desktop/sepia/magasinnier.png");
+    left: 34%;
+    bottom: 13%;
+}
+a#magasinnier:hover {
+    background-image: url("image/desktop/couleur/magasinnier.png");
+}
+a#abapeur {
+    width: 12%;
+    height: 25%;
+    background-image: url("image/desktop/sepia/abapeur.png");
+    left: 45%;
+    bottom: 13%;
+}
+a#abapeur:hover {
+    background-image: url("image/desktop/couleur/abapeur.png");
+}
+a#responsable {
+    width: 17%;
+    height: 15%;
+    background-image: url("image/desktop/sepia/responsable.png");
+    left: 58%;
+    bottom: 13%;
+}
+a#responsable:hover {
+    background-image: url("image/desktop/couleur/responsable.png");
+}
+a#formateur_info {
+    width: 15%;
+    height: 28%;
+    background-image: url("image/desktop/sepia/formateur_info.png");
+    left: 74%;
+    bottom: 13%;
+}
+a#formateur_info:hover {
+    background-image: url("image/desktop/couleur/formateur_info.png");
+}
+a#bac {
+    width: 11%;
+    height: 10%;
+    background-image: url("image/desktop/sepia/voiture_bac.png");
+    left: 6%;
+    bottom: 0%;
+}
+a#bac:hover {
+    background-image: url("image/desktop/couleur/voiture_bac.png");
+}
+a#biochimie {
+    width: 22%;
+    height: 17%;
+    background-image: url("image/desktop/sepia/voiture_biochimie2.png");
+    left: 21%;
+    bottom: -3%;
+}
+a#biochimie:hover {
+    background-image: url("image/desktop/couleur/voiture_biochimie2.png");
+}
+a#graduat {
+    width: 22%;
+    height: 20%;
+    background-image: url("image/desktop/sepia/voiture_graduat.png");
+    left: 43%;
+    bottom: -1%;
+}
+a#graduat:hover {
+    background-image: url("image/desktop/couleur/voiture_graduat.png");
+}
+a#mos {
+    width: 23%;
+    height: 15%;
+    background-image: url("image/desktop/sepia/voiture_mos.png");
+    right: 0%;
+    bottom: 0%;
+}
+a#mos:hover {
+    background-image: url("image/desktop/couleur/voiture_mos.png");
+}
+
+/*************************************************************
+                    générales
+*************************************************************/

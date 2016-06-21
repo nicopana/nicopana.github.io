@@ -1,0 +1,52 @@
+
+// taille de texte responsive
+// $fontMin: taille minimale de texte, nombre sans unité => interprété en px
+// $fontBack taille  si la taille responsive ne se calcule pas entre widthmin et max
+// $fontMax: taille max calculée en fonction de l'écran
+// $widthMin: taille d'écran en dessous de laquelle on affiche la taille  fontMin
+// $widthMax: taille d'écran au dessus de laquelle on affiche la taille  fontMax;
+
+@mixin font-size($fontMin, $fontBack, $fontMax, $widthMin, $widthMax) {
+​
+    @media (min-width: 0px) and (max-width: $widthMin * 1px) {
+        font-size: $fontMin * 1px;
+    }
+​
+    @media (min-width: $widthMin * 1px) and (max-width: $widthMax * 1px) {
+        font-size: $fontBack * 1px;
+        font-size: calc( #{$fontMin} * 1px + (#{$fontMax} - #{$fontMin}) * ( (100vw - #{$widthMin} * 1px) / ( #{$widthMax} - #{$widthMin}) ));
+    }
+​
+    @media (min-width: $widthMax * 1px) {
+        font-size: $fontMax * 1px;
+    }
+}
+// pour dimensionner
+
+// .element {
+//   @include size(100%);
+// }
+//
+// .other-element {
+//   @include size(100%, 1px);
+// }
+// CSS output:
+//
+// .element {
+//   width: 100%;
+//   height: 100%;
+// }
+//
+// .other-element {
+//   width: 100%;
+//   height: 1px;
+// }
+@mixin size($width, $height: $width) {
+      width: $width;
+      height: $height;
+}
+
+@mixin min-size($width, $height: $width) {
+      min-width: $width;
+      min-height: $height;
+}

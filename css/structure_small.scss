@@ -1,0 +1,32 @@
+/*************************************************************
+                    ==petit écran
+*************************************************************/
+
+@media screen and (max-width: 680px) {
+    div#nuage_container {
+        @include position(absolute, 0 null null 5%);
+        @include size(90%, 80%);
+        background-image: none;
+    }
+    div#nuage_container.SF {
+        @include position(absolute, 0 null null 5%);
+        @include size(90%, 80%);
+        background-image: none;
+    }
+
+    #nuage_txt {
+        background-color: black;
+        color: white;
+        font-size: 12px;
+        border-radius: 3px;
+        border: solid #A16806 3px;
+    }
+    #nuage_txt.SF {
+        background-color: black;
+        border-radius: 35px;
+        border: solid #A8EEFB 3px;
+    }
+    .image_holder{
+      width:75%;
+    }
+}

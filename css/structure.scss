@@ -1,0 +1,84 @@
+#main {
+    @include position(absolute, 0 null null 0);
+    padding: 0;
+    @include size(100%);
+    z-index: -2;
+    border: $bordure;
+}
+#fond {
+    @include position(absolute, 0 null null 0);
+    height: 100%;
+    @include min-size(800px,350px);
+    z-index: -1;
+}
+/*****************************************************
+             ==affichage info
+****************************************************             */
+#nuage_container {
+    @include position(absolute, 0 null null 16%);
+    // position:relative;
+    @include size(62%, 56%);
+    overflow:hidden;
+    padding:0;
+    border: $bordure;
+}
+#films{
+  @include position(absolute, 0 null null 0);
+  height: 100%;
+  z-index: 1;
+}
+.image_holder{
+position:absolute; /* this is important, so the div is positioned on top of the text */
+border: $bordure;
+overflow: hidden;
+margin:0;
+padding:0;
+width:100%;
+z-index: 2;
+}
+.image_div {
+    position:relative; /* important so we can work with the left or right indent */
+    overflow:hidden; /* hide the content outside the div (this is how we will hide the part of the image) */
+    width:50%; /* make it 50% of the whole images_holder */
+    float:left; /* make then inline */
+}
+
+.box_image{
+  width:200%;
+  z-index: 3;
+}
+.right img{
+    margin-left: -100%; /* 100% is in this case 50% of the image, so this is how we show the second part of the image */
+}
+
+
+#nuage_txt {
+    @extend .txt_base;
+    z-index:2;
+    @include position(absolute, -103% null null 0);
+    @include size(100%, 100%);
+    overflow: auto;
+    padding: 0 25px 0 10px;
+    margin: 0;
+    background-color: black;
+    border-radius: 3px;
+    border: solid #A16806 10px;
+    h1 {
+        text-align: center;
+        margin: 0;
+    }
+    h2 {
+        margin: 2px 0 2px 5px;
+    }
+    span {
+        font-weight: bolder;
+    }
+}
+
+
+#nuage_txt.SF {
+    @extend .txt_SF;
+    background-color: black;
+    border-radius: 35px;
+    border: solid #A8EEFB 7px;
+}

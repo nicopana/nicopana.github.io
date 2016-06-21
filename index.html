@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta name charset="UTF-8">
+    <title>Nicolas Panassié</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+
+<body>
+    <div id="main">
+        <img src="image/desktop/background1280x700.jpg" id="fond" />
+        <!-- zone qui va recevoir les textes, images, vidéos.... -->
+
+        <div id="nuage_container">
+            <!-- recevra le texte des formations et boulots -->
+            <div id="nuage_txt"></div>
+            <div class="image_holder">
+                <!--INSERT THE SAME IMAGE IN 2 DIVS, THEY BOTH HAVE image_div CLASS AND left OR right CLASS DEPENDING ON POSITION-->
+                <div class='image_div left'><img class='box_image' src='image/desktop/sepia/nuage2.png' /></div>
+                <div class='image_div right'><img class='box_image' src='image/desktop/sepia/nuage2.png' /></div>
+                <!-- WE USED CSS FLOAT PROPERY, SO WE NEED TO CLEAR NOW-->
+                <div class='clear'></div>
+            </div>
+            <!--END THE IMAGE PARTS HOLDER-->
+  <!-- MOVIES POSTER, FIRST IS TRANSPARENTE -->
+            <img src="image/desktop/couleur/film_affiches.png" alt="affiches de film" id='films' class="transparent" />
+        </div>
+        <!--END THE NUAGE CONTAINER-->
+
+        <a id="silo_film" class="image" href="#"></a>
+        <a id="silo_base" class="image" href="#"></a>
+
+        <a id="contact" class="image" href="#"></a>
+        <a id="formateur95" class="image" href="#"></a>
+        <a id="magasinnier" class="image" href="#"></a>
+        <a id="abapeur" class="image" href="#"></a>
+        <a id="responsable" class="image" href="#"></a>
+        <a id="formateur_info" class="image" href="#"></a>
+
+        <a id="bac" class="image" href="#"></a>
+        <a id="biochimie" class="image" href="#"></a>
+        <a id="graduat" class="image" href="#"></a>
+        <a id="mos" class="image" href="#"></a>
+        <a id="belge" class="image" href="#"></a>
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/texte.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/splitImage.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+@charset "UTF-8";
+/*************************************************************
+                    générales
+*************************************************************/
+.txt_base, #nuage_txt {
+  color: white;
+  font-family: "Dancing Script";
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  text-align: justify; }
+
+.txt_SF, #nuage_txt.SF {
+  color: #3BF901;
+  font-family: Orbitron;
+  font-size: 1em;
+  line-height: 1.5; }
+
+.clear {
+  clear: both; }
+
+.transparent {
+  opacity: 0;
+  transition: 1.5s; }
+
+.opaque {
+  opacity: 1;
+  transition: 1.5s; }
+
+#main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  border: 0; }
+
+#fond {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-width: 800px;
+  min-height: 350px;
+  z-index: -1; }
+
+/*****************************************************
+             ==affichage info
+****************************************************             */
+#nuage_container {
+  position: absolute;
+  top: 0;
+  left: 16%;
+  width: 62%;
+  height: 56%;
+  overflow: hidden;
+  padding: 0;
+  border: 0; }
+
+#films {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1; }
+
+.image_holder {
+  position: absolute;
+  /* this is important, so the div is positioned on top of the text */
+  border: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 2; }
+
+.image_div {
+  position: relative;
+  /* important so we can work with the left or right indent */
+  overflow: hidden;
+  /* hide the content outside the div (this is how we will hide the part of the image) */
+  width: 50%;
+  /* make it 50% of the whole images_holder */
+  float: left;
+  /* make then inline */ }
+
+.box_image {
+  width: 200%;
+  z-index: 3; }
+
+.right img {
+  margin-left: -100%;
+  /* 100% is in this case 50% of the image, so this is how we show the second part of the image */ }
+
+#nuage_txt {
+  z-index: 2;
+  position: absolute;
+  top: -103%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 0 25px 0 10px;
+  margin: 0;
+  background-color: black;
+  border-radius: 3px;
+  border: solid #A16806 10px; }
+  #nuage_txt h1 {
+    text-align: center;
+    margin: 0; }
+  #nuage_txt h2 {
+    margin: 2px 0 2px 5px; }
+  #nuage_txt span {
+    font-weight: bolder; }
+
+#nuage_txt.SF {
+  background-color: black;
+  border-radius: 35px;
+  border: solid #A8EEFB 7px; }
+
+/*************************************************************
+                    ==petit écran
+*************************************************************/
+@media screen and (max-width: 680px) {
+  div#nuage_container {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    background-image: none; }
+
+  div#nuage_container.SF {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    background-image: none; }
+
+  #nuage_txt {
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    border-radius: 3px;
+    border: solid #A16806 3px; }
+
+  #nuage_txt.SF {
+    background-color: black;
+    border-radius: 35px;
+    border: solid #A8EEFB 3px; }
+
+  .image_holder {
+    width: 75%; } }
+/***********************************************
+                     ==éléments cliquable
+***********************************************/
+a.image {
+  display: block;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  outline: none;
+  z-index: 1; }
+
+a#silo_base {
+  width: 8%;
+  height: 15%;
+  background-image: url("../image/desktop/sepia/silo_bases.png");
+  left: 9%;
+  bottom: 42%; }
+  a#silo_base:hover {
+    background-image: url("../image/desktop/couleur/silo_bases.png"); }
+
+a#silo_film {
+  width: 8%;
+  height: 15%;
+  background-image: url("../image/desktop/sepia/silo_film.png");
+  left: 83%;
+  bottom: 58%; }
+  a#silo_film:hover {
+    background-image: url("../image/desktop/couleur/silo_film.png"); }
+
+a#contact {
+  width: 9%;
+  height: 22%;
+  background-image: url("../image/desktop/sepia/boite_a_lettres.png");
+  left: 1%;
+  bottom: 6%; }
+  a#contact:visited {
+    background-image: url("../image/desktop/couleur/boite_a_lettres.png"); }
+
+a#formateur95 {
+  width: 16%;
+  height: 22%;
+  background-image: url("../image/desktop/sepia/formateur95.png");
+  left: 24%;
+  bottom: 13%; }
+  a#formateur95:hover {
+    background-image: url("../image/desktop/couleur/formateur95.png"); }
+
+a#magasinnier {
+  width: 14%;
+  height: 10%;
+  background-image: url("../image/desktop/sepia/magasinnier.png");
+  left: 34%;
+  bottom: 13%; }
+  a#magasinnier:hover {
+    background-image: url("../image/desktop/couleur/magasinnier.png"); }
+
+a#abapeur {
+  width: 12%;
+  height: 25%;
+  background-image: url("../image/desktop/sepia/abapeur.png");
+  left: 45%;
+  bottom: 13%; }
+  a#abapeur :hover {
+    background-image: url("../image/desktop/couleur/abapeur.png"); }
+
+a#responsable {
+  width: 17%;
+  height: 15%;
+  background-image: url("../image/desktop/sepia/responsable.png");
+  left: 58%;
+  bottom: 13%; }
+  a#responsable:hover {
+    background-image: url("../image/desktop/couleur/responsable.png"); }
+
+a#formateur_info {
+  width: 15%;
+  height: 28%;
+  background-image: url("../image/desktop/sepia/formateur_info.png");
+  left: 74%;
+  bottom: 13%; }
+  a#formateur_info:hover {
+    background-image: url("../image/desktop/couleur/formateur_info.png"); }
+
+a#bac {
+  width: 11%;
+  height: 10%;
+  background-image: url("../image/desktop/sepia/voiture_bac.png");
+  left: 6%;
+  bottom: 0; }
+  a#bac:hover {
+    background-image: url("../image/desktop/couleur/voiture_bac.png"); }
+
+a#biochimie {
+  width: 22%;
+  height: 17%;
+  background-image: url("../image/desktop/sepia/voiture_biochimie2.png");
+  left: 21%;
+  bottom: -3%; }
+  a#biochimie:hover {
+    background-image: url("../image/desktop/couleur/voiture_biochimie2.png"); }
+
+a#graduat {
+  width: 22%;
+  height: 20%;
+  background-image: url("../image/desktop/sepia/voiture_graduat.png");
+  left: 43%;
+  bottom: -1%; }
+  a#graduat:hover {
+    background-image: url("../image/desktop/couleur/voiture_graduat.png"); }
+
+a#mos {
+  width: 23%;
+  height: 15%;
+  background-image: url("../image/desktop/sepia/voiture_mos.png");
+  right: 0;
+  bottom: 0; }
+  a#mos:hover {
+    background-image: url("../image/desktop/couleur/voiture_mos.png"); }
+
+/***********************************************
+                     ==contact
+***********************************************/
+#nuage_txt form {
+  width: 98%; }
+  #nuage_txt form input[type='submit'] {
+    display: inline-block;
+    vertical-align: bottom; }
+  #nuage_txt form fieldset {
+    display: inline-block;
+    vertical-align: top;
+    padding: 2px;
+    margin: 2px;
+    border: none; }
+    #nuage_txt form fieldset#coordo {
+      width: 40%; }
+    #nuage_txt form fieldset#msg {
+      width: 45%;
+      height: 130px; }
+    #nuage_txt form fieldset label {
+      display: inline-block;
+      width: 30%; }
+      #nuage_txt form fieldset label span {
+        font-weight: bolder; }
+    #nuage_txt form fieldset input {
+      color: #a7aa13; }
+      #nuage_txt form fieldset input:required {
+        font-weight: bolder; }
+      #nuage_txt form fieldset input.trait {
+        margin: 2px;
+        background-color: transparent;
+        border: none;
+        border-bottom: dashed 1px white; }
+    #nuage_txt form fieldset textarea {
+      width: 98%;
+      height: 95px;
+      background-color: transparent;
+      border: dashed 1px white;
+      color: #a7aa13; }
+
+a.social {
+  display: inline-block;
+  margin: 0 5px;
+  color: white;
+  transition: 0.5s; }
+  a.social:hover {
+    color: #2814e9; }
+
+/*# sourceMappingURL=style.css.map */

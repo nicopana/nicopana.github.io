@@ -1,0 +1,2 @@
+Sepia: Filtre/GMIC/Color/sepia  Gamma:0  Contrast:1  Brightness:0
+Filtres/Artistic/Effets de toile :3

@@ -1,0 +1,82 @@
+div#main {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /*margin: 0px;*/
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 255, 0, 0.2);
+    /*border: solid red 2px;*/
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    /*background-image: url("Ressources/image/desktop/background1920x1280.jpg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  min-width:768px;*/
+}
+#fond {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    min-width: 900px;
+    margin: auto;
+    z-index: -1;
+}
+/*div#ciel1 {
+    height: 20%;
+    background-color: rgba(0, 0, 128, 0.2);
+}
+div#ciel2 {
+    height: 20%;
+    background-color: rgba(0, 0, 255, 0.2);
+}
+div#boulot {
+    height: 30%;
+    background-color: rgba(0, 255, 0, 0.2);
+}
+div#formation {
+    height: 29%;
+    background-color: rgba(255, 25, 128, 0.2);
+}*/
+a {
+    display: inline-block;
+    background-image: url("Ressources/image/desktop/sepia/silo_livres.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    border: solid yellow 2px;
+}
+a.silo_livre {
+    width: 8%;
+    height: 15%;
+    background-image: url("Ressources/image/desktop/sepia/silo_livres.png");
+    left: 5%;
+    bottom: 0;
+}
+a.silo_livre:hover {
+    background-image: url("Ressources/image/desktop/couleur/silo_livres.png");
+}
+a.silo_film {
+    width: 8%;
+    height: 15%;
+    background-image: url("Ressources/image/desktop/sepia/silo_film.png");
+    left: 65%;
+    bottom: 0;
+}
+a.silo_film:hover {
+    background-image: url("Ressources/image/desktop/couleur/silo_film.png");
+}
+
+a.formateur95 {
+    width: 10%;
+    height: 15%;
+    background-image:url("Ressources/image/desktop/sepia/formateur95.png");
+    left:25%;
+    bottom:0;
+}
+a.formateur95:hover {
+    background-image: url("Ressources/image/desktop/couleur/formateur95.png");
+}
