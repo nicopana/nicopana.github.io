@@ -35,7 +35,7 @@ a#contact {
     background-image: url($imgSepia + "boite_a_lettres.png");
     left: 1%;
     bottom: 6%;
-    &:visited {
+    &:hover, &:active {
         background-image: url($imgCouleur + "boite_a_lettres.png");
     }
 }
@@ -65,7 +65,7 @@ a#abapeur {
     background-image: url($imgSepia + "abapeur.png");
     left: 45%;
     bottom: 13%;
-    :hover {
+    &:hover {
         background-image: url($imgCouleur + "abapeur.png");
     }
 }

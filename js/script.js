@@ -259,31 +259,31 @@ $(function() {
 // Affiche formateur95
 $(function() {
     $('#formateur95').click(function() {
-        afficheTableau(formateur95, null);
+        afficheTableau("formateur95", null);
     });
 });
 // Affiche magasinnier
 $(function() {
     $('#magasinnier').click(function() {
-        afficheTableau(magasinnier, null);
+        afficheTableau("magasinnier", null);
     });
 });
 // Affiche abapeur
 $(function() {
     $('#abapeur').click(function() {
-        afficheTableau(abapeur, null);
+        afficheTableau("abapeur", null);
     });
 });
-// Affiche responsable formateur_info
+// Affiche responsable reponsable parc
 $(function() {
     $('#responsable').click(function() {
-        afficheTableau(responsable, null);
+        afficheTableau("responsable", null);
     });
 });
 // Affiche formateur_info
 $(function() {
     $('#formateur_info').click(function() {
-        afficheTableau(formateur_info, null);
+        afficheTableau("formateur_info", null);
     });
 });
 // Affiche contact

@@ -73,8 +73,7 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 100%;
-  z-index: 2; }
+  width: 100%; }
 
 .image_div {
   position: relative;
@@ -84,7 +83,8 @@
   width: 50%;
   /* make it 50% of the whole images_holder */
   float: left;
-  /* make then inline */ }
+  /* make then inline */
+  z-index: 2; }
 
 .box_image {
   width: 200%;
@@ -189,7 +189,7 @@ a#contact {
   background-image: url("../image/desktop/sepia/boite_a_lettres.png");
   left: 1%;
   bottom: 6%; }
-  a#contact:visited {
+  a#contact:hover, a#contact:active {
     background-image: url("../image/desktop/couleur/boite_a_lettres.png"); }
 
 a#formateur95 {
@@ -216,7 +216,7 @@ a#abapeur {
   background-image: url("../image/desktop/sepia/abapeur.png");
   left: 45%;
   bottom: 13%; }
-  a#abapeur :hover {
+  a#abapeur:hover {
     background-image: url("../image/desktop/couleur/abapeur.png"); }
 
 a#responsable {
