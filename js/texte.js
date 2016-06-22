@@ -79,5 +79,5 @@ mesTextes.contact = "<h1>En savoir plus?</h1>\
                 <input type='submit' value='Envoyer' />\
             </form>\
             <h2>Me retrouver?</h2>\
-            <a href='#' class='social'><i class='fa fa-twitter fa-2x' aria-hidden='true'>twitter</i></a>\
-            <a href='#' class='social'><i class='fa fa-linkedin fa-2x' aria-hidden='true'>link</i></a>"
+            <a href='#' class='social'><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a>\
+            <a href='#' class='social'><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a>"

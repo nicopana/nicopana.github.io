@@ -3,16 +3,18 @@
 *************************************************************/
 
 @media screen and (max-width: 680px) {
-    div#nuage_container {
+    div#nuage_container, div#nuage_container.SF {
         @include position(absolute, 0 null null 5%);
         @include size(90%, 80%);
+        width:90vw;//vw= largeur de l'écran:Viewport Width
         background-image: none;
     }
-    div#nuage_container.SF {
-        @include position(absolute, 0 null null 5%);
-        @include size(90%, 80%);
-        background-image: none;
-    }
+    // div#nuage_container.SF {
+    //     @include position(absolute, 0 null null 5%);
+    //     @include size(90%, 80%);
+    //     width:90vw;//vw= largeur de l'écran:Viewport Width
+    //     background-image: none;
+    // }
 
     #nuage_txt {
         background-color: black;

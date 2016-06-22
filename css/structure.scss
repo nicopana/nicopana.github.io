@@ -1,3 +1,8 @@
+body{
+  background-image: url("../image/desktop/fond.jpg");
+  background-repeat: repeat;
+
+}
 #main {
     @include position(absolute, 0 null null 0);
     padding: 0;
@@ -16,7 +21,6 @@
 ****************************************************             */
 #nuage_container {
     @include position(absolute, 0 null null 16%);
-    // position:relative;
     @include size(62%, 56%);
     overflow:hidden;
     padding:0;
@@ -39,7 +43,7 @@ width:100%;
     position:relative; /* important so we can work with the left or right indent */
     overflow:hidden; /* hide the content outside the div (this is how we will hide the part of the image) */
     width:50%; /* make it 50% of the whole images_holder */
-    float:left; /* make then inline */    
+    float:left; /* make then inline */
     z-index: 2;
 }
 

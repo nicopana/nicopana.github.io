@@ -7,14 +7,21 @@
  * @return {[type]} [description]
  */
 function redimensionnement() {
+    // donne la taille de l'image de fond au main et le centre
     var $image = $('#fond');
     var image_width = $image.width();
     var image_height = $image.height();
-    // console.log('image de fond:' + image_width + ' X ' + image_height);
+    var gauche = ($(window).width() - image_width) / 2;
+    // Si gauche<0, on ne met pas de marge => gauche =0
+    gauche = (gauche > 0) ? gauche : 0;
+
     $('#main').css({
         'width': image_width + 'px',
-        'height': image_height + 'px'
+        'height': image_height + 'px',
+        'left': gauche + 'px'
     });
+
+
     //ajuste la largeur du texte au container : tient compte des bordures et marges
     //le outerWidth ne fonctionnait pas bien
     var barre = 0;
@@ -55,39 +62,77 @@ $(document).ready(function() {
                  ==fonction affichage films
 *********************************************************************/
 
+/**
+ * [fonduEnchaine efface une image pendant que ça affiche une autre image]
+ * @method fonduEnchaine
+ * @param  {[type]}      $elt1 [image à afficher]
+ * @param  {[type]}      $elt2 [image à effacer]
+ * @return {[type]}            [description]
+ */
 function fonduEnchaine($elt1, $elt2) {
     $elt1.removeClass('transparent').addClass('opaque');
     $elt2.removeClass('opaque').addClass('transparent');
 }
 
 function enleveFilms() {
-  var flag = $('.box_image').hasClass('transparent')
+    var flag = $('.box_image').hasClass('transparent')
     if (flag) {
+        $('#films').css('z-index', 4);
         fonduEnchaine($('.box_image'), $('#films'));
+        setTimeout(function() {
+            $('#films').css('z-index', 1)
+        }, (500));
     }
     return flag;
 };
 /*********************************************************************
                  ==fonction affichage texte
 *********************************************************************/
-
 /**
- * remet le panneau texte au &er plan, a uliisé une fois que le texte est affiché
- * le but étant de laisser le texte sous le nuage pdt l'ouverture
- * <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
- * NE MARCHE PAS JE NE COMPREND PAS POURQUOI!!!!!!!!!!!!!
- * >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ * [ferme le nuage dans lequel le texte s'est affiché]
+ * @return {[type]} [description]
  */
-function textePremierplan() {
-    $('nuage_txt').zIndex("4");
-};
-
-function texteSecondPlan() {
-    $('nuage_txt').css({
-        'z-index': 1
+function fermeNuage() {
+    $('#nuage_container').find('.left').animate({
+        right: 0
+    }, {
+        queue: false,
+        duration: 300
+    });
+    $('#nuage_container').find('.right').animate({
+        left: 0
+    }, {
+        queue: false,
+        duration: 300
     });
 };
 
+/**
+ * Replie et fait disparaitre le texte du nuage.
+ * @return {[type]} [description]
+ */
+function fadeTxt() {
+    //si il n'y a pas de texte, ne fait rien!
+    // if ($('#nuage_txt').html() != "") {
+    if (txtAffiche != "none") {
+        var mon_texte = "";
+        //recupere la hauteur du panneau  de texte (nuage_txt)
+        var height = $('#nuage_txt').outerHeight() + 40;
+        //fait descendre le panneau de texte
+        $('#nuage_txt').animate({
+            top: height
+        }, {
+            queue: false,
+            duration: 500,
+        });
+        //vide le contenu de nuage_txt
+        $('#nuage_txt').html(mon_texte);
+        setTimeout(function() {
+            $('#nuage_txt').removeClass()
+        }, 450);
+    }
+    txtAffiche = "none";
+};
 
 /**
  * ouvre le nuage pour faire apparaitre du texte ou autre chose
@@ -113,60 +158,13 @@ function ouvreNuage() {
 };
 
 /**
- * [ferme le nuage dans lequel le texte s'est affiché]
- * @return {[type]} [description]
- */
-function fermeNuage() {
-    texteSecondPlan();
-    $('#nuage_container').find('.left').animate({
-        right: 0
-    }, {
-        queue: false,
-        duration: 300
-    });
-    $('#nuage_container').find('.right').animate({
-        left: 0
-    }, {
-        queue: false,
-        duration: 300
-    });
-};
-
-/**
- * Replie et fait disparaitre le texte du nuage.
- * @return {[type]} [description]
- */
-function fadeTxt() {
-    //si il n'y a pas de texte, ne fait rien!
-// if ($('#nuage_txt').html() != "") {
-      if (txtAffiche!="none") {
-        var mon_texte = "";
-        //recupere la hauteur du panneau  de texte (nuage_txt)
-        var height = $('#nuage_txt').outerHeight() + 40;
-        //fait descendre le panneau de texte
-        $('#nuage_txt').animate({
-            top: height
-        }, {
-            queue: false,
-            duration: 500,
-        });
-        //vide le contenu de nuage_txt
-        $('#nuage_txt').html(mon_texte);
-        setTimeout(function() {
-            $('#nuage_txt').removeClass()
-        }, 450);
-    }
-    txtAffiche="none";
-};
-
-/**
  * Remplit le texte du nuage, enlève la classe,
  * met le nom de la clé mesTextes ds la variable txtAffiche
  * @param  {[string]} mon_texte [clé de la variable texte à afficher (tableau mesTextes)]
  * @return {[type]}           [description]
  */
 function giveTxt(mon_texte) {
-  txtAffiche=mon_texte;
+    txtAffiche = mon_texte;
     $('#nuage_txt').html(mesTextes[mon_texte]);
     var height = $('#nuage_txt').outerHeight();
     //place le texte au-dessus du nuage
@@ -182,6 +180,8 @@ function giveTxt(mon_texte) {
     });
 };
 
+var ItemClic="none"; // recupère le dernier item cliqué
+
 /**
  * [affiche le tableau contenant les infos idoines, fait descendre le tableau
  * précédent ou fait fondre les films ]
@@ -189,17 +189,18 @@ function giveTxt(mon_texte) {
  * @param  {[texte]} ma_classe [classe à affecter, si pas de classe : null]
  * @return {[type]}           [description]
  */
-function afficheTableau(mon_texte, ma_classe) {
-  // alert("nuage_txt:" + $('#nuage_txt').html()+ "mon_texte:" + mon_texte );
-  // if ($('#nuage_txt').html() == mon_texte) {
-  if (txtAffiche == mon_texte) {
-      return false;}
+function afficheTableau($item, ma_classe) {
 
+
+    alert($item.attr('id'));
+    mon_texte = $item.attr('id');
+    if (txtAffiche == mon_texte) {
+        return false;
+    }
     enleveFilms();
     var attente = 10; // temps d'attente pour charger le texte dépend si il ouvre le nuage ou pas.
     //si il n'y a pas de texte affiché => ouvre le nuage
-    // if ($('#nuage_txt').html() == "") {
-      if (txtAffiche == "none") {
+    if (txtAffiche == "none") {
         ouvreNuage();
         //sinon enlève l'ancien texte
     } else {
@@ -214,88 +215,98 @@ function afficheTableau(mon_texte, ma_classe) {
             $('#nuage_txt').addClass(ma_classe)
         }, attente);
     }
-    setTimeout(function() {
-        textePremierplan()
-    }, attente);
 };
 
+/*********************************************************************
+                 ==Navigation
+*********************************************************************/
 
 
-// Clic sur le fond : affiche comme au départ
+function clicItem($item,maClasse) {
+  var item= $item.attr('id');
+  if(ItemClic == item){
+    ItemClic = "none";
+    enleveFilms();
+    fadeTxt();
+    fermeNuage();
+  } else{
+    ItemClic =item;
+    if ($item.hasClass('texte')){
+      alert("classe texte");
+      afficheTableau($item,maClasse);
+    }else {
+      {
+        alert("pas classe texte");
+      }
+    }
+  }
+}
+
 $(function() {
+
+    // Clic sur le fond : affiche comme au départ
     $('#fond').click(function() {
         enleveFilms();
         fadeTxt();
         fermeNuage();
-    })
-});
-
-// Affiche bac
-$(function() {
+    });
+    // Affiche bac
     $('#bac').click(function() {
-        afficheTableau("bac", null);
+        clicItem($(this),null);
     });
-});
 
-
-// affiche  biochimie
-$(function() {
+    // affiche  biochimie
     $('#biochimie').click(function() {
-        afficheTableau("biochimie", null);
+        clicItem($(this), null);
     });
-});
-// Affiche graduat
-$(function() {
+
+    // Affiche graduat
     $('#graduat').click(function() {
-        afficheTableau("graduat", 'SF');
+        clicItem("graduat", 'SF');
     });
-});
-// Affiche mos
-$(function() {
+
+    // Affiche mos
     $('#mos').click(function() {
         afficheTableau("mos", 'SF');
     });
-});
-// Affiche formateur95
-$(function() {
+
+    // Affiche formateur95
     $('#formateur95').click(function() {
         afficheTableau("formateur95", null);
     });
-});
-// Affiche magasinnier
-$(function() {
+
+    // Affiche magasinnier
     $('#magasinnier').click(function() {
         afficheTableau("magasinnier", null);
     });
-});
-// Affiche abapeur
-$(function() {
+
+    // Affiche abapeur
     $('#abapeur').click(function() {
         afficheTableau("abapeur", null);
     });
-});
-// Affiche responsable reponsable parc
-$(function() {
+
+    // Affiche responsable reponsable parc
     $('#responsable').click(function() {
         afficheTableau("responsable", null);
     });
-});
-// Affiche formateur_info
-$(function() {
+
+    // Affiche formateur_info
     $('#formateur_info').click(function() {
         afficheTableau("formateur_info", null);
     });
-});
-// Affiche contact
-$(function() {
+
+    // Affiche contact
     $('#contact').click(function() {
         afficheTableau("contact", null);
     });
-});
 
-$(function() {
+    // Affcihe films
     $('#silo_film').click(function() {
-        fadeTxt();
+        $('#films').css('z-index', 4);
         fonduEnchaine($('#films'), $('.box_image'));
+        // fadeTxt();
+        setTimeout(function() {
+            fadeTxt()
+        }, (500));
     });
 });

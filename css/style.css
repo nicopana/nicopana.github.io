@@ -27,6 +27,10 @@
   opacity: 1;
   transition: 1.5s; }
 
+body {
+  background-image: url("../image/desktop/fond.jpg");
+  background-repeat: repeat; }
+
 #main {
   position: absolute;
   top: 0;
@@ -124,20 +128,13 @@
                     ==petit écran
 *************************************************************/
 @media screen and (max-width: 680px) {
-  div#nuage_container {
+  div#nuage_container, div#nuage_container.SF {
     position: absolute;
     top: 0;
     left: 5%;
     width: 90%;
     height: 80%;
-    background-image: none; }
-
-  div#nuage_container.SF {
-    position: absolute;
-    top: 0;
-    left: 5%;
-    width: 90%;
-    height: 80%;
+    width: 90vw;
     background-image: none; }
 
   #nuage_txt {
