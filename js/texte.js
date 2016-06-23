@@ -1,6 +1,7 @@
-var imgSepia = "../image/desktop/sepia/";
-var imgCouleur = "../image/desktop/couleur/";
-var txtAffiche = "none"; //contient le nom du texte en cours d'affichage
+var imgSepia = "image/desktop/sepia/";
+var imgCouleur = "image/desktop/couleur/";
+var ItemClic="none"; // recupère le dernier item cliqué
+//var txtAffiche = "none"; //contient le nom du texte en cours d'affichage
 var mesTextes = new Object(); // contient mes différents textes avec leur nom en tant que clé
 
 

@@ -114,7 +114,7 @@ function fermeNuage() {
 function fadeTxt() {
     //si il n'y a pas de texte, ne fait rien!
     // if ($('#nuage_txt').html() != "") {
-    if (txtAffiche != "none") {
+    if (ItemClic != "none") {
         var mon_texte = "";
         //recupere la hauteur du panneau  de texte (nuage_txt)
         var height = $('#nuage_txt').outerHeight() + 40;
@@ -129,9 +129,8 @@ function fadeTxt() {
         $('#nuage_txt').html(mon_texte);
         setTimeout(function() {
             $('#nuage_txt').removeClass()
-        }, 450);
+        }, 350);
     }
-    txtAffiche = "none";
 };
 
 /**
@@ -164,7 +163,6 @@ function ouvreNuage() {
  * @return {[type]}           [description]
  */
 function giveTxt(mon_texte) {
-    txtAffiche = mon_texte;
     $('#nuage_txt').html(mesTextes[mon_texte]);
     var height = $('#nuage_txt').outerHeight();
     //place le texte au-dessus du nuage
@@ -180,8 +178,6 @@ function giveTxt(mon_texte) {
     });
 };
 
-var ItemClic="none"; // recupère le dernier item cliqué
-
 /**
  * [affiche le tableau contenant les infos idoines, fait descendre le tableau
  * précédent ou fait fondre les films ]
@@ -189,26 +185,22 @@ var ItemClic="none"; // recupère le dernier item cliqué
  * @param  {[texte]} ma_classe [classe à affecter, si pas de classe : null]
  * @return {[type]}           [description]
  */
-function afficheTableau($item, ma_classe) {
-
-
-    alert($item.attr('id'));
-    mon_texte = $item.attr('id');
-    if (txtAffiche == mon_texte) {
-        return false;
-    }
-    enleveFilms();
+function afficheTableau(item, ma_classe) {
+    if (ItemClic == "silo_film") {
+        enleveFilms();
+        ouvreNuage();
+    };
     var attente = 10; // temps d'attente pour charger le texte dépend si il ouvre le nuage ou pas.
     //si il n'y a pas de texte affiché => ouvre le nuage
-    if (txtAffiche == "none") {
+    if (ItemClic == "none") {
         ouvreNuage();
         //sinon enlève l'ancien texte
     } else {
         fadeTxt();
-        attente = 450;
+        attente = 400;
     }
     setTimeout(function() {
-        giveTxt(mon_texte)
+        giveTxt(item)
     }, attente);
     if (ma_classe != null) {
         setTimeout(function() {
@@ -220,93 +212,84 @@ function afficheTableau($item, ma_classe) {
 /*********************************************************************
                  ==Navigation
 *********************************************************************/
-
-
-function clicItem($item,maClasse) {
-  var item= $item.attr('id');
-  if(ItemClic == item){
-    ItemClic = "none";
-    enleveFilms();
-    fadeTxt();
-    fermeNuage();
-  } else{
-    ItemClic =item;
-    if ($item.hasClass('texte')){
-      alert("classe texte");
-      afficheTableau($item,maClasse);
-    }else {
-      {
-        alert("pas classe texte");
-      }
+/**
+ * afficheInit remet l'affichage comme au début:
+ * vide le texte, enleve les films, ferme le nuage, remet ItemClic à "none"
+ * @method afficheInit
+ * @return {[type]}    [description]
+ */
+function afficheInit() {
+    if (ItemClic == 'silo_film') {
+        enleveFilms();
     }
-  }
-}
+    if ($('#' + ItemClic).hasClass('texte')) {
+        fadeTxt();
+    }
+    fermeNuage();
+    ItemClic = "none";
+};
+
+/**
+ * [clicItem affiche du texte ou une photo en fonction de l'élément cliqué.]
+ * @param  {[objet du DOM]} $item    [ : image cliquée]
+ * @param  {[String]} maClasse [Classe du texte à afficher, si pas de classe mettre NULL]
+ * @return {[type]}          [description]
+ */
+function clicItem($item, maClasse) {
+    //item reçoit le (id) de l'objet cliqué au format string.
+    var item = $item.attr('id');
+
+    // ItemClic (var globale) contient l'id du dernier item cliqué et activé.
+    // si on reclique sur le même : affichage comme au début et remise à "none" de ItemClic
+    if (ItemClic == item) {
+        afficheInit();
+        //remet l'image en sepia
+        $item.css('background-image', "url('" + imgSepia + item + ".png')");
+        //si on ne clique pas sur le même élément : affiche ce qui doit etre affiché!
+    } else {
+        if ($item.hasClass('texte')) {
+            afficheTableau(item, maClasse);
+        } else if (item == "silo_film") {
+            // Affiche films
+            // met la photo des films en avant
+            $('#films').css('z-index', 4);
+            fonduEnchaine($('#films'), $('.box_image'));
+            // fadeTxt();
+            setTimeout(function() {
+                fadeTxt()
+            }, (00));
+        }
+        //met l'image en couleur
+        $item.css('background-image', "url('" + imgCouleur + item + ".png')");
+        //remet le dernier cliqué en sepia
+        $("#" + ItemClic).css('background-image', "url('" + imgSepia + ItemClic + ".png')");
+        // met à jour l'id de l'item cliqué
+        ItemClic = item;
+    }
+};
+/*********************************************************************
+                 ==interactions
+*********************************************************************/
 
 $(function() {
 
     // Clic sur le fond : affiche comme au départ
     $('#fond').click(function() {
-        enleveFilms();
-        fadeTxt();
-        fermeNuage();
+        //remet le dernier cliqué en sepia
+        $("#" + ItemClic).css('background-image', "url('" + imgSepia + ItemClic + ".png')");
+        afficheInit();
     });
-    // Affiche bac
-    $('#bac').click(function() {
-        clicItem($(this),null);
-    });
-
-    // affiche  biochimie
-    $('#biochimie').click(function() {
+    // Affiche texte mise en forme handwriting
+    $('.ImgHandwriting').click(function() {
         clicItem($(this), null);
     });
-
-    // Affiche graduat
-    $('#graduat').click(function() {
-        clicItem("graduat", 'SF');
+    // Affiche texte mise en forme SF
+    $('.ImgSF').click(function() {
+        clicItem($(this), "SF");
     });
 
-    // Affiche mos
-    $('#mos').click(function() {
-        afficheTableau("mos", 'SF');
-    });
-
-    // Affiche formateur95
-    $('#formateur95').click(function() {
-        afficheTableau("formateur95", null);
-    });
-
-    // Affiche magasinnier
-    $('#magasinnier').click(function() {
-        afficheTableau("magasinnier", null);
-    });
-
-    // Affiche abapeur
-    $('#abapeur').click(function() {
-        afficheTableau("abapeur", null);
-    });
-
-    // Affiche responsable reponsable parc
-    $('#responsable').click(function() {
-        afficheTableau("responsable", null);
-    });
-
-    // Affiche formateur_info
-    $('#formateur_info').click(function() {
-        afficheTableau("formateur_info", null);
-    });
-
-    // Affiche contact
-    $('#contact').click(function() {
-        afficheTableau("contact", null);
-    });
-
-    // Affcihe films
+    // Affiche films
     $('#silo_film').click(function() {
-        $('#films').css('z-index', 4);
-        fonduEnchaine($('#films'), $('.box_image'));
-        // fadeTxt();
-        setTimeout(function() {
-            fadeTxt()
-        }, (500));
+        clicItem($(this), null);
     });
 });

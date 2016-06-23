@@ -12,11 +12,11 @@ a.image {
 a#silo_base {
     width: 8%;
     height: 15%;
-    background-image: url($imgSepia + "silo_bases.png");
+    background-image: url($imgSepia + "silo_base.png");
     left: 9%;
     bottom: 42%;
     &:hover {
-        background-image: url($imgCouleur + "silo_bases.png");
+        background-image: url($imgCouleur + "silo_base.png");
     }
 }
 a#silo_film {
@@ -32,11 +32,11 @@ a#silo_film {
 a#contact {
     width: 9%;
     height: 22%;
-    background-image: url($imgSepia + "boite_a_lettres.png");
+    background-image: url($imgSepia + "contact.png");
     left: 1%;
     bottom: 6%;
     &:hover, &:active {
-        background-image: url($imgCouleur + "boite_a_lettres.png");
+        background-image: url($imgCouleur + "contact.png");
     }
 }
 a#formateur95 {
@@ -92,40 +92,40 @@ a#formateur_info {
 a#bac {
     width: 11%;
     height: 10%;
-    background-image: url($imgSepia + "voiture_bac.png");
+    background-image: url($imgSepia + "bac.png");
     left: 6%;
     bottom: 0;
     &:hover {
-        background-image: url($imgCouleur + "voiture_bac.png");
+        background-image: url($imgCouleur + "bac.png");
     }
 }
 a#biochimie {
     width: 22%;
     height: 17%;
-    background-image: url($imgSepia + "voiture_biochimie2.png");
+    background-image: url($imgSepia + "biochimie.png");
     left: 21%;
     bottom: -3%;
     &:hover {
-        background-image: url($imgCouleur + "voiture_biochimie2.png");
+        background-image: url($imgCouleur + "biochimie.png");
     }
 }
 a#graduat {
     width: 22%;
     height: 20%;
-    background-image: url($imgSepia + "voiture_graduat.png");
+    background-image: url($imgSepia + "graduat.png");
     left: 43%;
     bottom: -1%;
     &:hover {
-        background-image: url($imgCouleur + "voiture_graduat.png");
+        background-image: url($imgCouleur + "graduat.png");
     }
 }
 a#mos {
     width: 23%;
     height: 15%;
-    background-image: url($imgSepia + "voiture_mos.png");
+    background-image: url($imgSepia + "mos.png");
     right: 0;
     bottom: 0;
     &:hover {
-        background-image: url($imgCouleur + "voiture_mos.png");
+        background-image: url($imgCouleur + "mos.png");
     }
 }

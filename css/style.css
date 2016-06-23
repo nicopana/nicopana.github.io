@@ -165,11 +165,11 @@ a.image {
 a#silo_base {
   width: 8%;
   height: 15%;
-  background-image: url("../image/desktop/sepia/silo_bases.png");
+  background-image: url("../image/desktop/sepia/silo_base.png");
   left: 9%;
   bottom: 42%; }
   a#silo_base:hover {
-    background-image: url("../image/desktop/couleur/silo_bases.png"); }
+    background-image: url("../image/desktop/couleur/silo_base.png"); }
 
 a#silo_film {
   width: 8%;
@@ -183,11 +183,11 @@ a#silo_film {
 a#contact {
   width: 9%;
   height: 22%;
-  background-image: url("../image/desktop/sepia/boite_a_lettres.png");
+  background-image: url("../image/desktop/sepia/contact.png");
   left: 1%;
   bottom: 6%; }
   a#contact:hover, a#contact:active {
-    background-image: url("../image/desktop/couleur/boite_a_lettres.png"); }
+    background-image: url("../image/desktop/couleur/contact.png"); }
 
 a#formateur95 {
   width: 16%;
@@ -237,38 +237,38 @@ a#formateur_info {
 a#bac {
   width: 11%;
   height: 10%;
-  background-image: url("../image/desktop/sepia/voiture_bac.png");
+  background-image: url("../image/desktop/sepia/bac.png");
   left: 6%;
   bottom: 0; }
   a#bac:hover {
-    background-image: url("../image/desktop/couleur/voiture_bac.png"); }
+    background-image: url("../image/desktop/couleur/bac.png"); }
 
 a#biochimie {
   width: 22%;
   height: 17%;
-  background-image: url("../image/desktop/sepia/voiture_biochimie2.png");
+  background-image: url("../image/desktop/sepia/biochimie.png");
   left: 21%;
   bottom: -3%; }
   a#biochimie:hover {
-    background-image: url("../image/desktop/couleur/voiture_biochimie2.png"); }
+    background-image: url("../image/desktop/couleur/biochimie.png"); }
 
 a#graduat {
   width: 22%;
   height: 20%;
-  background-image: url("../image/desktop/sepia/voiture_graduat.png");
+  background-image: url("../image/desktop/sepia/graduat.png");
   left: 43%;
   bottom: -1%; }
   a#graduat:hover {
-    background-image: url("../image/desktop/couleur/voiture_graduat.png"); }
+    background-image: url("../image/desktop/couleur/graduat.png"); }
 
 a#mos {
   width: 23%;
   height: 15%;
-  background-image: url("../image/desktop/sepia/voiture_mos.png");
+  background-image: url("../image/desktop/sepia/mos.png");
   right: 0;
   bottom: 0; }
   a#mos:hover {
-    background-image: url("../image/desktop/couleur/voiture_mos.png"); }
+    background-image: url("../image/desktop/couleur/mos.png"); }
 
 /***********************************************
                      ==contact
