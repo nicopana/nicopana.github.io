@@ -139,8 +139,6 @@ body {
 
   #nuage_txt {
     background-color: black;
-    color: white;
-    font-size: 12px;
     border-radius: 3px;
     border: solid #A16806 3px; }
 
@@ -245,10 +243,10 @@ a#bac {
 
 a#biochimie {
   width: 22%;
-  height: 17%;
+  height: 15%;
   background-image: url("../image/desktop/sepia/biochimie.png");
-  left: 21%;
-  bottom: -3%; }
+  left: 20%;
+  bottom: 0%; }
   a#biochimie:hover {
     background-image: url("../image/desktop/couleur/biochimie.png"); }
 
@@ -257,7 +255,7 @@ a#graduat {
   height: 20%;
   background-image: url("../image/desktop/sepia/graduat.png");
   left: 43%;
-  bottom: -1%; }
+  bottom: 0%; }
   a#graduat:hover {
     background-image: url("../image/desktop/couleur/graduat.png"); }
 

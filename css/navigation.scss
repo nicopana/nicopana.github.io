@@ -101,10 +101,10 @@ a#bac {
 }
 a#biochimie {
     width: 22%;
-    height: 17%;
+    height: 15%;
     background-image: url($imgSepia + "biochimie.png");
-    left: 21%;
-    bottom: -3%;
+    left: 20%;
+    bottom: 0%;
     &:hover {
         background-image: url($imgCouleur + "biochimie.png");
     }
@@ -114,7 +114,7 @@ a#graduat {
     height: 20%;
     background-image: url($imgSepia + "graduat.png");
     left: 43%;
-    bottom: -1%;
+    bottom: 0%;
     &:hover {
         background-image: url($imgCouleur + "graduat.png");
     }

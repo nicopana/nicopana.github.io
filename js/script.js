@@ -46,9 +46,12 @@ function redimensionnement() {
     })
 };
 //EVENEMENTS
+// Redimensionne qd TOUT (bibli et images) est chargé
 $(document).ready(function() {
-    // Au chargement initial
-    redimensionnement();
+redimensionnement();
+});
+
+$(document).ready(function() {
     // En cas de redimensionnement de la fenêtre
     $(window).resize(function() {
         $('#main').css({
