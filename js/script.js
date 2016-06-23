@@ -47,7 +47,7 @@ function redimensionnement() {
 };
 //EVENEMENTS
 // Redimensionne qd TOUT (bibli et images) est chargé
-$(document).load(function() {
+$(window).load(function() {
 redimensionnement();
 });
 
